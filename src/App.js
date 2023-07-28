@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Main from "./components/Main";
+import Service from "./components/Service";
+import Form from "./components/Form";
+import { useTranslation } from "react-i18next";
+// import i18next from "i18next";
 
 function App() {
+  const { t } = useTranslation();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Main />
+      <div className="service--section">
+        <Service
+          image="./images/icons8-hospital-50.png"
+          title={t("first_service_title")}
+          content={t("first_service_content")}
+        />
+        <Service
+          image="./images/icons8-home-50.png"
+          title={t("second_servic_title")}
+          content={t("second_service_content")}
+        />
+        <Service
+          image="./images/icons8-shopping-bag-50.png"
+          title={t("third_service_title")}
+          content={t("third_service_content")}
+        />
+      </div>
+      <Form />
     </div>
   );
 }
